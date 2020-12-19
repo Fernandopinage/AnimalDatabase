@@ -31,7 +31,11 @@ namespace petshop.api.Controllers
         public ActionResult<Animal> PegarAnimalPorId(string id){
 
                 var Animal =  _mongoDbService.Get(id);
+                if(Animal == null){
+
                 return Json(Animal);
+                }
+                return Animal;
 
         }
          
