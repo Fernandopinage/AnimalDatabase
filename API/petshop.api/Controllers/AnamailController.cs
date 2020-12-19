@@ -20,6 +20,20 @@ namespace petshop.api.Controllers
                  _mongoDbService.Insere(animal);
 
         }
+        [HttpGet]
+        public async Task<JsonResult>PegarTodosAnimais(){
+
+                var todosAnimais = await _mongoDbService.GetAllAnimal();
+                return Json(todosAnimais);
+
+        }
+        [HttpGet]
+        public ActionResult<Animal> PegarAnimalPorId(string id){
+
+                var Animal =  _mongoDbService.Get(id);
+                return Json(Animal);
+
+        }
          
     }
 }
